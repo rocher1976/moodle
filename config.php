@@ -38,12 +38,12 @@ $CFG = new stdClass();
 // will be stored.  This database must already have been created         //
 // and a username/password created to access it.                         //
 
-$CFG->dbtype    = 'mysql';      // 'pgsql', 'mariadb', 'mysqli', 'auroramysql', 'sqlsrv' or 'oci'
+$CFG->dbtype    = 'mysqli';      // 'pgsql', 'mariadb', 'mysqli', 'auroramysql', 'sqlsrv' or 'oci'
 $CFG->dblibrary = 'native';     // 'native' only at the moment
-$CFG->dbhost    = 'moodle-web-app-server.mysql.database.azure.com';  // eg 'localhost' or 'db.isp.com' or IP
-$CFG->dbname    = 'moodle-web-app-database';     // database name, eg moodle
-$CFG->dbuser    = 'kmvqycldki';   // your database username
-$CFG->dbpass    = '!Password1234';   // your database password
+$CFG->dbhost    = getenv('MYSQL_HOST');  // eg 'localhost' or 'db.isp.com' or IP
+$CFG->dbname    = getenv('MYSQL_DATABASE');     // database name, eg moodle
+$CFG->dbuser    = getenv('MYSQL_USER');   // your database username
+$CFG->dbpass    = getenv('MYSQL_PASSWORD');   // your database password
 $CFG->prefix    = 'mdl_';       // prefix to use for all table names
 $CFG->dboptions = array(
     'dbpersist' => false,       // should persistent database connections be
@@ -162,7 +162,7 @@ $CFG->dboptions = array(
 // If you need both intranet and Internet access please read
 // http://docs.moodle.org/en/masquerading
 
-$CFG->wwwroot   = 'moodle-web-app-gvewdqcycacch7h4.uksouth-01.azurewebsites.net';
+$CFG->wwwroot   = getenv('MYSQL_WEB_LOCATION');
 
 
 //=========================================================================
@@ -178,7 +178,7 @@ $CFG->wwwroot   = 'moodle-web-app-gvewdqcycacch7h4.uksouth-01.azurewebsites.net'
 //
 // - On Windows systems you might specify something like 'c:\moodledata'
 
-$CFG->dataroot  = '/home/moodledata';
+$CFG->dataroot  = getenv('MYSQL_DATA_LOCATION');
 
 // Whether the Moodle router is fully configured.
 //
