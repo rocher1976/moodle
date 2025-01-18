@@ -162,7 +162,7 @@ $CFG->dboptions = array(
 // If you need both intranet and Internet access please read
 // http://docs.moodle.org/en/masquerading
 
-$CFG->wwwroot   = getenv('MYSQL_WEB_LOCATION');
+$CFG->wwwroot   = 'https://moodle-web-app-gvewdqcycacch7h4.uksouth-01.azurewebsites.net/';
 
 
 //=========================================================================
@@ -178,7 +178,7 @@ $CFG->wwwroot   = getenv('MYSQL_WEB_LOCATION');
 //
 // - On Windows systems you might specify something like 'c:\moodledata'
 
-$CFG->dataroot  = getenv('MYSQL_DATA_LOCATION');
+$CFG->dataroot  = '/home/moodledata';
 
 // Whether the Moodle router is fully configured.
 //
